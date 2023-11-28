@@ -5,12 +5,22 @@ function latencyTime = compute_latency(spTimes, evTimes, method, vizBool, figStr
 % a baseline bin. Written to operate on one neuron at a time. 
 %
 % INPUT:
-%   spTimes - vector of spike times for a given neuron.
+%   spTimes - vector of spike times for a given neuron 
+%   * These do not need to be segmented into trials. They are simply all 
+%   spike times of a neuron within a session)
+%
 %   evTimes - vector of event times for which you want to compute latency
-%       (e.g. stimulus onset times).
+%   * These also do not need to be segmented into trials. It might be the 
+%   case that each event happens once in a trial (e.g. target time in a
+%   guided saccade task) but it might also be the case that you get
+%   mulitple events within a trial (e.g. stimulus onset time in a serial
+%   presentation of stimuli).
+%
 %   method - string. Needs to correspond to one of the cases of the switch
 %       loop below (eg. 'white2017' / 'yuKatz2023' / ...)
+%
 %   vizBool - (optional) boolean to visualize (ie plot a figure)
+%
 %   figStr - (optional) string that appears on the figure
 %
 % OUTPUT:
